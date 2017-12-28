@@ -1,4 +1,17 @@
 #!/usr/bin/env python2.7
+# 另一种实现方式
+import pandas
+
+def uniqueDay(start,end):
+    result=set()
+    dates = pandas.date_range(start, end)
+    dates = (dt.strftime('%Y%m%d') for dt in dates)
+    [result.add(dt) for dt in dates if len(set(dt))==8]
+    if result:
+        print(max(result))
+
+uniqueDay('19700101','20180101')
+
 
 from itertools import permutations
 num_list = ['0','1','2','3','4','5','6','7','8','9']
